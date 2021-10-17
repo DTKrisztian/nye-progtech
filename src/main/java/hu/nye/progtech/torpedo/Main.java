@@ -1,5 +1,6 @@
 package hu.nye.progtech.torpedo;
 
+import hu.nye.progtech.torpedo.service.exception.MapReaderException;
 import hu.nye.progtech.torpedo.service.map.reader.Player;
 
 import java.util.Scanner;
@@ -13,6 +14,7 @@ public class Main {
 
         try {
             System.out.println("Welcome to the game "+ name.PlayerName(scanner.nextLine()));
+
         } catch (Exception a) {
             a.printStackTrace();
         }
