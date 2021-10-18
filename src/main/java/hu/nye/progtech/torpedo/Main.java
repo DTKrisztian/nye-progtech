@@ -13,11 +13,10 @@ public class Main {
         Scanner scanner=new Scanner(System.in);
 
         try {
-            System.out.println("Welcome to the game "+ name.PlayerName(scanner.nextLine()));
-
-        } catch (Exception a) {
-            a.printStackTrace();
+            System.out.println("Welcome to the game "+ name.PlayerName(scanner.nextLine())+"!");
+            System.out.println("Your enemy will be the AI named Karl!");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
-
 }
