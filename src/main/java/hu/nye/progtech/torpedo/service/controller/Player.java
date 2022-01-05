@@ -6,13 +6,15 @@ import hu.nye.progtech.torpedo.service.boats.FirstBoat;
 import hu.nye.progtech.torpedo.service.boats.FourthBoat;
 import hu.nye.progtech.torpedo.service.boats.SecondBoat;
 import hu.nye.progtech.torpedo.service.boats.ThirdBoat;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 /**
  * Player handler for boats and maps.
  */
-
+@XmlRootElement
 public class Player {
-    private final String nickname;
+    private String nickname;
     public FirstBoat firstBoat;
     public SecondBoat secondBoat;
     public ThirdBoat thirdBoat;
@@ -22,6 +24,9 @@ public class Player {
     public Map map;
     public Map hitMap;
     public boolean lives;
+
+    public Player() {
+    }
 
     /**
      * Player handler.
@@ -38,7 +43,7 @@ public class Player {
     /**
      * Return name for player.
      */
-
+    @XmlElement
     public String getNickname() {
         return nickname;
     }

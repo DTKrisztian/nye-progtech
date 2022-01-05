@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Random;
 
+import hu.nye.progtech.torpedo.persistence.implementation.XMLGameSave;
 import hu.nye.progtech.torpedo.service.boats.FifthBoat;
 import hu.nye.progtech.torpedo.service.boats.FirstBoat;
 import hu.nye.progtech.torpedo.service.boats.FourthBoat;
@@ -68,6 +69,8 @@ public class GameState {
         this.playerOne = new Player(reader.readLine(), 1);
         insertUser(statement, playerOne.getNickname(), 0);
         System.out.println("Place your first ship " + playerOne.getNickname());
+        XMLGameSave xmlGameSave = new XMLGameSave();
+        xmlGameSave.save(playerOne.getNickname(), "Player1");
         while (!playerOne.map.getBoatAdded()) {
             do {
                 check = false;
@@ -244,6 +247,8 @@ public class GameState {
         System.out.println("\nPlease give your opponent a name: ");
         this.AI = new Player(reader.readLine(), 2);
         insertUser(statement, AI.getNickname(), 0);
+        XMLGameSave xmlGameSave = new XMLGameSave();
+        xmlGameSave.save(AI.getNickname(), "Player2");
         xcord = 0;
         ycord = 0;
         while (!AI.map.getBoatAdded()) {
