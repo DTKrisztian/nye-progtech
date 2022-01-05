@@ -247,8 +247,8 @@ public class GameState {
         xcord = 0;
         ycord = 0;
         while (!AI.map.getBoatAdded()) {
-            xcord = random.nextInt(10)+1;
-            ycord = random.nextInt(10)+1;
+            xcord = random.nextInt(10) + 1;
+            ycord = random.nextInt(10) + 1;
             AI.map.addBoat(AI.firstBoat = new FirstBoat(xcord, ycord, 2));
         }
         AI.map.setBoatAdded(false);
@@ -363,8 +363,8 @@ public class GameState {
                 xcord = 0;
                 ycord = 0;
                 do {
-                    xcord = random.nextInt(10)+1;
-                    ycord = random.nextInt(10)+1;
+                    xcord = random.nextInt(10) + 1;
+                    ycord = random.nextInt(10) + 1;
                 } while (!AI.map.checkHitIndex(xcord, ycord));
 
                 if (playerOne.map.getPlace(xcord, ycord) == 1) {
