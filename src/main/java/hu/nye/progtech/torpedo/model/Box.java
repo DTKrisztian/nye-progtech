@@ -11,7 +11,7 @@ import hu.nye.progtech.torpedo.service.map.Coordinate;
 public class Box {
     private Boolean isVertical;
     private int length;
-    Vector<Coordinate> coordinates;
+    public Vector<Coordinate> coordinates;
     private int ownBoat;
 
     /**

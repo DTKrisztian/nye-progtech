@@ -326,6 +326,7 @@ public class GameState {
         boolean nextPlayer = true;
         boolean playerOneLost = false;
         boolean playerTwoLost;
+        boolean check;
         reader = new BufferedReader(new InputStreamReader(System.in));
 
         while (playerOne.lives && AI.lives) {
@@ -339,10 +340,26 @@ public class GameState {
                 xcord = 0;
                 ycord = 0;
                 do {
-                    System.out.print("x: ");
-                    xcord = Integer.parseInt(reader.readLine());
-                    System.out.print("y: ");
-                    ycord = Integer.parseInt(reader.readLine());
+                    do {
+                        check = false;
+                        System.out.print("\nx: ");
+                        try {
+                            xcord = Integer.parseInt(reader.readLine());
+                        } catch (NumberFormatException e) {
+                            System.out.println("Please give a number between 1 and 10!");
+                            check = true;
+                        }
+                    } while (check);
+                    do {
+                        check = false;
+                        System.out.print("\ny: ");
+                        try {
+                            ycord = Integer.parseInt(reader.readLine());
+                        } catch (NumberFormatException e) {
+                            System.out.println("Please give a number between 1 and 10!");
+                            check = true;
+                        }
+                    } while (check);
                 } while (!playerOne.map.checkHitIndex(xcord, ycord));
 
                 if (AI.map.getPlace(xcord, ycord) == 2) {
@@ -368,10 +385,12 @@ public class GameState {
                 } while (!AI.map.checkHitIndex(xcord, ycord));
 
                 if (playerOne.map.getPlace(xcord, ycord) == 1) {
+                    System.out.println("Hit!");
                     playerOne.map.setHit(xcord, ycord);
                     AI.addHitPointToHitTable(xcord, ycord);
                     AI.addPoint();
                 } else if (playerOne.map.getPlace(xcord, ycord) == 0) {
+                    System.out.println("Miss!");
                     AI.addHitPointToHitTable(xcord, ycord);
                     playerOne.map.setHit(xcord, ycord);
                 } else {
